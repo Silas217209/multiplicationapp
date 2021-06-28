@@ -39,6 +39,18 @@ class German {
   String zeit = 'Zeiten';
   String aktuelle_zeit = 'Zeit';
   String bestzeit = 'Beste Zeit';
+  String januar = 'Januar';
+  String februar = 'Februar';
+  String marz = 'März';
+  String april = 'April';
+  String mai = 'Mai';
+  String juni = 'Juni';
+  String juli = 'Juli';
+  String august = 'August';
+  String september = 'September';
+  String oktober = 'Oktober';
+  String november = 'November';
+  String dezember = 'Dezember';
 
   String falsch(falsch) => "falsch: $falsch";
   String richtig(richtig) => "richtig: $richtig";

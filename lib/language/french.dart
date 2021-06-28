@@ -38,6 +38,18 @@ class French {
   String zeit = 'temps';
   String aktuelle_zeit = 'temps';
   String bestzeit = 'temps a battre';
+  String januar = 'janvier';
+  String februar = 'février';
+  String marz = 'mars';
+  String april = 'avril';
+  String mai = 'mai';
+  String juni = 'juin';
+  String juli = 'juillet';
+  String august = 'août';
+  String september = 'septembre';
+  String oktober = 'octobre';
+  String november = 'novembre';
+  String dezember = 'dezembre';
 
   String falsch(falsch) => "faux: $falsch";
   String richtig(richtig) => "juste: $richtig";

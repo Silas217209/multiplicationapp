@@ -9,35 +9,31 @@ class CustomTextButton extends StatelessWidget {
   final onPressed;
 
   const CustomTextButton(
-    {Key? key, required this.text, required this.onPressed}) : super(key: key);
+      {Key? key, required this.text, required this.onPressed})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
-          height: height / 100,
-          width: MediaQuery.of(context).size.width * 0.86
-        ),
+            height: height / 100,
+            width: MediaQuery.of(context).size.width * 0.86),
         SizedBox(
           height: height / 15,
           width: MediaQuery.of(context).size.width / 10 * 8,
           child: TextButton(
             onPressed: onPressed,
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.green)
-            ),
+                backgroundColor: MaterialStateProperty.all(Colors.green)),
             child: Text(text,
-              style: TextStyle(
-                color: Colors.grey[200],
-                fontSize: MediaQuery.of(context).size.width / 25
-              )
-            ),
+                style: TextStyle(
+                    color: Colors.grey[200],
+                    fontSize: MediaQuery.of(context).size.width / 25)),
           ),
         ),
         SizedBox(
-          height: height / 300,
-          width: MediaQuery.of(context).size.width * 0.9
-        ),
+            height: height / 300,
+            width: MediaQuery.of(context).size.width * 0.9),
       ],
     );
   }
@@ -53,7 +49,7 @@ class ChooseTest extends StatefulWidget {
 
 class _ChooseTestState extends State<ChooseTest> {
   final int reihe;
-  late bool checkboxvalue = testliste.contains(reihe)? true : false ;
+  late bool checkboxvalue = testliste.contains(reihe) ? true : false;
 
   _ChooseTestState(this.reihe);
   @override
@@ -74,8 +70,7 @@ class _ChooseTestState extends State<ChooseTest> {
                     onChanged: (value) => onoperationpressed(),
                   ),
                   Text(translation.einmaleinsmit(reihe.toString()),
-                    style: TextStyle(fontSize: height / 35)
-                  ),
+                      style: TextStyle(fontSize: height / 35)),
                 ],
               ),
             ),
@@ -87,6 +82,7 @@ class _ChooseTestState extends State<ChooseTest> {
       ],
     );
   }
+
   onoperationpressed() {
     setState(() {
       if (testliste.contains(reihe)) {
@@ -104,7 +100,12 @@ class StatistikElement extends StatefulWidget {
   final int firstmultiplicator;
   final int secondmultiplicator;
   final String result;
-  const StatistikElement({Key? key, required this.result, required this.firstmultiplicator, required this.secondmultiplicator}) : super(key: key);
+  const StatistikElement(
+      {Key? key,
+      required this.result,
+      required this.firstmultiplicator,
+      required this.secondmultiplicator})
+      : super(key: key);
 
   @override
   _StatistikElementState createState() => _StatistikElementState();
@@ -114,16 +115,21 @@ class _StatistikElementState extends State<StatistikElement> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _showMyDialog(widget.firstmultiplicator, widget.secondmultiplicator, getcolor(widget.firstmultiplicator, widget.secondmultiplicator)),
+      onTap: () => _showMyDialog(
+          widget.firstmultiplicator,
+          widget.secondmultiplicator,
+          getcolor(widget.firstmultiplicator, widget.secondmultiplicator)),
       child: Container(
         child: Center(child: Text(widget.result)),
         decoration: BoxDecoration(
-          color:getcolor(widget.firstmultiplicator, widget.secondmultiplicator),
+          color:
+              getcolor(widget.firstmultiplicator, widget.secondmultiplicator),
           borderRadius: BorderRadius.circular(50.0),
         ),
       ),
     );
   }
+
   Color? getcolor(int firstmultiplicator, int secondmultiplicator) {
     double value;
     wertbox = Hive.box("wert");
@@ -137,12 +143,12 @@ class _StatistikElementState extends State<StatistikElement> {
         return Colors.deepOrange[700];
       } else if (value >= 80) {
         return Colors.lightGreenAccent[700];
-      } else if(value >= 50) {
+      } else if (value >= 50) {
         return Colors.yellowAccent;
       }
-    } else if(wertbox.containsKey(keyr)) {
+    } else if (wertbox.containsKey(keyr)) {
       return Colors.lightGreenAccent[700];
-    } else if(wertbox.containsKey(keyf)) {
+    } else if (wertbox.containsKey(keyf)) {
       return Colors.deepOrange[700];
     } else {
       return Colors.blue[50];
@@ -150,25 +156,27 @@ class _StatistikElementState extends State<StatistikElement> {
   }
 
   Future<void> _showMyDialog(int first, int second, Color? color) async {
-    if(color == Colors.blue[50]) {
+    if (color == Colors.blue[50]) {
       return null;
-    }  else {
+    } else {
       return showDialog<void>(
-        context: context,
-        barrierDismissible: true,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            content: Column(
+          context: context,
+          barrierDismissible: true,
+          builder: (BuildContext context) {
+            return AlertDialog(
+                content: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  translation.dialogaufgabe(widget.firstmultiplicator, widget.secondmultiplicator),
-                  style: TextStyle(fontSize: 40)
-                ),
+                    translation.dialogaufgabe(
+                        widget.firstmultiplicator, widget.secondmultiplicator),
+                    style: TextStyle(fontSize: 40)),
                 SizedBox(
                   height: height / 4,
                   child: RatingBarIndicator(
-                    rating: getpercentage(widget.firstmultiplicator, widget.secondmultiplicator)*5,
+                    rating: getpercentage(widget.firstmultiplicator,
+                            widget.secondmultiplicator) *
+                        5,
                     itemBuilder: (context, index) => Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -178,24 +186,26 @@ class _StatistikElementState extends State<StatistikElement> {
                     direction: Axis.horizontal,
                   ),
                 ),
-                Text(translation.anzahl_richtig_falsch(getright(widget.firstmultiplicator, widget.secondmultiplicator),getwrong(widget.firstmultiplicator, widget.secondmultiplicator))),
+                Text(translation.anzahl_richtig_falsch(
+                    getright(
+                        widget.firstmultiplicator, widget.secondmultiplicator),
+                    getwrong(widget.firstmultiplicator,
+                        widget.secondmultiplicator))),
               ],
-            )
-          );
-        } 
-      );
+            ));
+          });
     }
   }
-    
+
   double getpercentage(int firstmultiplicator, int secondmultiplicator) {
     var keyf = '$firstmultiplicator x $secondmultiplicator f';
     var keyr = '$firstmultiplicator x $secondmultiplicator r';
-    if(wertbox.containsKey(keyf) && wertbox.containsKey(keyr)) {
+    if (wertbox.containsKey(keyf) && wertbox.containsKey(keyr)) {
       int right = wertbox.get(keyr);
       int notright = wertbox.get(keyf);
       double value = 100 / (right + notright) * right;
       return value / 100;
-    } else if(wertbox.containsKey(keyf)) {
+    } else if (wertbox.containsKey(keyf)) {
       double value = 0.0;
       return value;
     } else {
@@ -203,11 +213,12 @@ class _StatistikElementState extends State<StatistikElement> {
       return value;
     }
   }
+
   getright(int firstmultiplicator, int secondmultiplicator) {
     var keyr = '$firstmultiplicator x $secondmultiplicator r';
     int? value = wertbox.get(keyr);
-    if(wertbox.containsKey(keyr)) {
-      if(value == 1) {
+    if (wertbox.containsKey(keyr)) {
+      if (value == 1) {
         return translation.getrightsingular(wertbox.get(keyr).toString());
       } else {
         return translation.getrightplural(wertbox.get(keyr).toString());
@@ -216,11 +227,12 @@ class _StatistikElementState extends State<StatistikElement> {
       return translation.ifzeroright;
     }
   }
+
   getwrong(int firstmultiplicator, int secondmultiplicator) {
     var keyf = '$firstmultiplicator x $secondmultiplicator f';
     var value = wertbox.get(keyf);
-    if(wertbox.containsKey(keyf)) {
-      if(value == 1) {
+    if (wertbox.containsKey(keyf)) {
+      if (value == 1) {
         return translation.getwrongsingular(wertbox.get(keyf).toString());
       } else {
         return translation.getwrongplural(wertbox.get(keyf).toString());
@@ -230,6 +242,7 @@ class _StatistikElementState extends State<StatistikElement> {
     }
   }
 }
+
 Widget staticbloc(String number) {
   return Container(
     child: Center(child: Text(number)),
@@ -240,7 +253,8 @@ Widget staticbloc(String number) {
   );
 }
 
-Future<void> showMyDialog(BuildContext context, String title, String text, ifyes) async {
+Future<void> showMyDialog(
+    BuildContext context, String title, String text, ifyes) async {
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
@@ -271,14 +285,11 @@ Future<void> showMyDialog(BuildContext context, String title, String text, ifyes
 }
 
 dynamic resetstatistics(BuildContext context) {
-  return showMyDialog(
-    context, translation.Statistiken_loschen_title,
-    translation.Statistiken_loschen_body,
-    () {
-      wertbox.clear();
-      Navigator.pop(context);
-    }
-  );
+  return showMyDialog(context, translation.Statistiken_loschen_title,
+      translation.Statistiken_loschen_body, () {
+    wertbox.clear();
+    Navigator.pop(context);
+  });
 }
 
 class MeanStar extends StatefulWidget {
@@ -305,26 +316,27 @@ class _MeanStarState extends State<MeanStar> {
       ),
     );
   }
+
   double getmean(wertbox) {
     List<int> ten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     List<double> data = [];
     Map values = wertbox.toMap();
-    if(values.isNotEmpty){
-      for(int i in ten) {
-        for(int j in ten) {
+    if (values.isNotEmpty) {
+      for (int i in ten) {
+        for (int j in ten) {
           var keyr = '$i x $j r';
           var keyf = '$i x $j f';
-          if(values.containsKey(keyr) && values.containsKey(keyf)) {
+          if (values.containsKey(keyr) && values.containsKey(keyf)) {
             double value = 100 / (values[keyr] + values[keyf]) * values[keyr];
             setState(() {
               data.add(value);
             });
-          } else if(wertbox.containsKey(keyr)) {
+          } else if (wertbox.containsKey(keyr)) {
             double value = 100;
             setState(() {
               data.add(value);
             });
-          } else if(wertbox.containsKey(keyf)) {
+          } else if (wertbox.containsKey(keyf)) {
             double value = 0;
             setState(() {
               data.add(value);
@@ -333,7 +345,7 @@ class _MeanStarState extends State<MeanStar> {
         }
       }
       double sum = data.fold(0, (previous, current) => current + previous);
-      return (sum / data.length) / 100 *5;
+      return (sum / data.length) / 100 * 5;
     } else {
       return 0;
     }
@@ -341,6 +353,57 @@ class _MeanStarState extends State<MeanStar> {
 }
 
 formatdate(date) {
-  var formattedDate = DateFormat('j:m d.MMM.y').format(date);
-  
+  var locale = '';
+  var formattedDate = DateFormat('j:m d.MMM.y').format(date).toString();
+  switch (language) {
+    case 'de':
+      locale = 'de';
+      break;
+    case 'fr':
+      locale = 'fr';
+      break;
+    default:
+      locale = 'de';
+  }
+  if (locale == 'de') {
+    switch (DateFormat('MMM').format(date).toString()) {
+      case 'january':
+        formattedDate.replaceAll(RegExp('january'), translation.januar);
+        break;
+      case 'febuary':
+        formattedDate.replaceAll(RegExp('febuary'), translation.februar);
+        break;
+      case 'march':
+        formattedDate.replaceAll(RegExp('march'), translation.marz);
+        break;
+      case 'april':
+        formattedDate.replaceAll(RegExp('april'), translation.april);
+        break;
+      case 'may':
+        formattedDate.replaceAll(RegExp('may'), translation.mai);
+        break;
+      case 'june':
+        formattedDate.replaceAll(RegExp('june'), translation.juni);
+        break;
+      case 'july':
+        formattedDate.replaceAll(RegExp('july'), translation.juli);
+        break;
+      case 'august':
+        formattedDate.replaceAll(RegExp('august'), translation.august);
+        break;
+      case 'september':
+        formattedDate.replaceAll(RegExp('september'), translation.september);
+        break;
+      case 'october':
+        formattedDate.replaceAll(RegExp('october'), translation.oktober);
+        break;
+      case 'november':
+        formattedDate.replaceAll(RegExp('november'), translation.november);
+        break;
+      case 'dezember':
+        formattedDate.replaceAll(RegExp('dezember'), translation.dezember);
+        break;
+    }
+  }
+  return formattedDate;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multiplication/utils/variablen.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:multiplication/utils/widgets.dart';
 
 class Time extends StatefulWidget {
 
@@ -38,36 +39,44 @@ class _TimeState extends State<Time> {
         child: ListView.builder(
           itemCount: timeBox.length,
           itemBuilder: (BuildContext context, int index) {
-            return Column(
+            return Stack(
               children: [
-                SizedBox(height: height / 60),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.0),
-                    color: Colors.green[100],
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(formatdate(timeBox[index][1]))
+                ),
+                Column(
+                  children: [
+                    SizedBox(height: height / 60),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: Colors.green[100],
 
-                  ),
-                  width: MediaQuery.of(context).size.width *0.95,
-                  height: height / 15,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Center(
-                        child: Text('${timebox.get(timeBox[index])[1].toStringAsFixed(1)} s')
                       ),
-                      
-                      RatingBarIndicator(
-                        rating: timebox.get(timeBox[index])[0],
-                        itemBuilder: (context, index) => Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        itemCount: 5,
-                        itemSize: 20.0,
-                        direction: Axis.horizontal,
+                      width: MediaQuery.of(context).size.width *0.95,
+                      height: height / 15,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Center(
+                            child: Text('${timebox.get(timeBox[index])[1].toStringAsFixed(1)} s')
+                          ),
+                          
+                          RatingBarIndicator(
+                            rating: timebox.get(timeBox[index])[0],
+                            itemBuilder: (context, index) => Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            itemCount: 5,
+                            itemSize: 20.0,
+                            direction: Axis.horizontal,
+                          )
+                        ],
                       )
-                    ],
-                  )
+                    ),
+                  ],
                 ),
               ],
             );
