@@ -17,7 +17,7 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
-      title: Text(translation.uben),
+      title: Text(translation.Uben),
     );
     return Scaffold(
       appBar: appBar,

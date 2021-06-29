@@ -14,6 +14,7 @@ import 'package:multiplication/screens/statistiken/statistiken.dart';
 import 'package:multiplication/screens/einstellungen/einstellunen.dart';
 import 'package:multiplication/utils/variablen.dart';
 import 'package:multiplication/utils/widgets.dart';
+import 'package:multiplication/screens/privacy_policy.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,6 +54,7 @@ class _MyAppState extends State<MyApp> {
         '/auswertung': (context) => Auswertung(),
         '/statistiken': (context) => StatisikenHome(),
         '/einstellungen': (context) => Einstellungen(),
+        '/privacy': (context) => PrivacyPolicy()
       },
     );
   }

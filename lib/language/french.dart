@@ -50,7 +50,27 @@ Tu seras chronométré pendant le test. Ton temp
 sera indiqué dans les statistiques, ainsi que la date, l’heure et les étoiles que tu as atteintes.
 
 You can find the source code here: ''';
+  String policy = '''
+L'application ne collecte, n'enregistre ni ne distribue aucune donnée personnelle et il ne lui est pas non plus possible
 
+  • d' établir une connexion Internet
+
+  • d'accéder à la mémoire, aux contacts ou au calendrier
+
+  • de récupérer les messages
+
+  • de localiser l'utilisateur
+
+L'application ne demande que la langue préférée afin d'adapter la langue de l'application à l'utilisateur.
+
+
+Mathilde Mélois
+Schützenstraße 4
+16359 Biesenthal
+Deutschland
+
+melois@zebrakuh.com
+  ''';
   String falsch(falsch) => "faux: $falsch";
   String richtig(richtig) => "juste: $richtig";
   String aufgabe(testfirst, testsecond, ergebnis) => "$testfirst x $testsecond = $ergebnis";
