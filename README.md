@@ -8,7 +8,7 @@ A app to train times tables
     2. if you want to add a feature I will accept or not. For a bug you don`t need my authorization.
     3. fork the repository
     4. make your changes
-    5. Pull request to beta
+    5. Pull request to master
 
 ***Note***
 
