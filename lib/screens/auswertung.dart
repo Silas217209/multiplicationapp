@@ -56,14 +56,17 @@ class _AuswertungState extends State<Auswertung> {
         appBar: appBar,
         body: Stack(
           children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('${translation.aktuelle_zeit}: $current_time'),
-                  Text('${translation.bestzeit}: ${getbest()}'),
-                ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('${translation.aktuelle_zeit}: $current_time s'),
+                    Text('${translation.bestzeit}: ${getbest().toStringAsFixed(1)} s'),
+                  ],
+                ),
               ),
             ),
             Align(
@@ -113,9 +116,8 @@ class _AuswertungState extends State<Auswertung> {
                       CustomTextButton(
                           text: translation.nochmal,
                           onPressed: () {
-                            Navigator.popUntil(
-                                context, ModalRoute.withName('/test'));
-                          })
+                            Navigator.pushNamed(context, '/test');
+                            })
                     ],
                   )
                 ],
@@ -165,10 +167,12 @@ class _AuswertungState extends State<Auswertung> {
 }
 
 getbest() {
-  List list = timebox.values.toList();
+  List<dynamic> list = timebox.values.toList();
   var best = list[0][1];
-  for (int i in list) {
-    best = list[i][1] < best ? best : list[i][1];
+  for (int j = 0; j < list.length; j++) {
+    if(best > list[j][1]) {
+      best = list[j][1];
+    }
   }
   return best;
 }

@@ -21,12 +21,10 @@ class German {
   String Einmaleins10 = "Einmaleins mit 10";
   String Einmaleinsalles = "Einmaleins mit allen Zahlen";
   String Statistiken_loschen_title = "Achtung";
-  String Statistiken_loschen_body =
-      "Bist du dir sicher, dass du die Statistiken zurücksetzen möchtest?";
+  String Statistiken_loschen_body ="Bist du dir sicher, dass du die Statistiken zurücksetzen möchtest?";
   String Statistiken_text_einstellungen = "Statistiken zurücksetzen";
   String Statistiken_zeit_loschen_title = "Achtung";
-  String Statistiken_zeit_loschen_body =
-      "Bist du dir sicher, dass du die Zeiten löschen möchtest?";
+  String Statistiken_zeit_loschen_body = "Bist du dir sicher, dass du die Zeiten löschen möchtest?";
   String Statistiken_zeit_text_einstellungen = "Zeiten löschen";
   String ifzerowrong = "0 falsche Ergebnisse";
   String Ja = "Ja";
@@ -39,19 +37,19 @@ class German {
   String zeit = 'Zeiten';
   String aktuelle_zeit = 'Zeit';
   String bestzeit = 'Beste Zeit';
-  String januar = 'Januar';
-  String februar = 'Februar';
-  String marz = 'März';
-  String april = 'April';
-  String mai = 'Mai';
-  String juni = 'Juni';
-  String juli = 'Juli';
-  String august = 'August';
-  String september = 'September';
-  String oktober = 'Oktober';
-  String november = 'November';
-  String dezember = 'Dezember';
+  String about = 'about';
+  String privacy = 'Datenschutzerklärung';
+  String apptext = '''Lerne das kleine Einmaleins schnell und einfach mit dieser App. 
 
+Du hast das kleine Einmaleins in der Schule gelernt, kannst es aber noch nicht so gut? Dann gehe in den Übungsteil der App um das kleine Einmaleins einer beliebigen Reihe zu verfestigen. Lass dir Zeit, denn es geht nicht auf Zeit. Wenn du einen Fehler gemacht hast, ist das auch nicht schlimm, denn jetzt weißt du das richtige Ergebnis und machst es das nächste mal richtig. 
+
+Wenn du das Einmaleins beherrschst oder wenn du wissen möchtest, wie gut du bist, gehe in den Testteil der App. Suche dir die Malreihen aus in welchen du getestet werden möchtest und fange an. Es werden dir 10 zufällig generierte Aufgaben nacheinander angezeigt, die du Lösen musst. Auch hier geht es nicht auf Zeit sondern auf Anzahl Fehler. 
+
+In den Statistiken siehst du eine Einmaleins Tabelle mit Feldern für jede Aufgabe, die du in einem Test gelöst hast. Wenn der Kreis grün ist, bedeutet dies, dass du mindestens 9 von 10 Aufgaben richtig hattest. Ist er gelb, bedeutet es, dass du mindestens 5 von 10 aufgaben richtig hattest und rot bedeutet, dass du 4 von 10 oder weniger Aufgaben richtig hattest.
+
+Während eines Tests wird zusätzlich auch noch die Zeit gestoppt, die du für den Test benötigst. Diese wird dir dann samt Datum, Uhrzeit und der Stern, die du erreicht hast, angezeigt.
+
+You can find the source code here: ''';
   String falsch(falsch) => "falsch: $falsch";
   String richtig(richtig) => "richtig: $richtig";
   String aufgabe(testfirst, testsecond, ergebnis) =>

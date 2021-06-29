@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:multiplication/utils/variablen.dart';
 import 'package:multiplication/utils/widgets.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Einstellungen extends StatefulWidget {
 
@@ -39,6 +41,58 @@ class _EinstellungenState extends State<Einstellungen> {
       appBar: appBar,
       body: SettingsList(
         sections: [
+          SettingsSection(
+            title: translation.about,
+            tiles: [
+              SettingsTile(
+                title: 'about',
+                onPressed: (BuildContext context) {
+                  showAboutDialog(
+                    context: context,
+                    applicationIcon: SizedBox(
+                      height: height / 12,
+                      width: height/ 12,
+                      child: Image.asset('assets/images/multiplication_logo.png')
+                    ),
+                    applicationName: translation.appbar,
+                    applicationVersion: '1.0.0',
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: translation.apptext,
+                              style: TextStyle(color: Colors.black)
+                            ),
+                            TextSpan(
+                              text: 'https://github.com/Silas217209/Multiplication.git',
+                              style: TextStyle(color: Colors.blue),
+                              recognizer: TapGestureRecognizer()..onTap = () async{
+                                const url = 'https://github.com/Silas217209/Multiplication.git';
+                                if(await canLaunch(url)) {
+                                  await launch(url);
+                                }
+                              }
+                            ),
+                            TextSpan(
+                              text: '\n \n ${translation.privacy}',
+                              style: TextStyle(color: Colors.blue),
+                              recognizer: TapGestureRecognizer()..onTap = () async{
+                                const url = 'https://github.com/Silas217209/Multiplication.git';
+                                if(await canLaunch(url)) {
+                                  await launch(url);
+                                }
+                              }
+                            ),
+                          ]
+                        )
+                      )
+                    ]
+                  );
+                }
+              )
+            ],
+          ),
           SettingsSection(
             title: translation.statistikenlabel,
             tiles: [

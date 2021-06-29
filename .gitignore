@@ -46,6 +46,6 @@ app.*.map.json
 /android/app/release
 
 #added by me
-/linux
-/web
-/keys
+/linux/
+/web/
+/keys/

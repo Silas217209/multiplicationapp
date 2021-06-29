@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multiplication/utils/variablen.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 
 class MathTest extends StatefulWidget {
   @override
@@ -143,19 +144,24 @@ class _MathTestState extends State<MathTest> {
                                           RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                  ))),
+                                  )
+                                )
+                              ),
                               child: Text('OK',
-                                  style: TextStyle(
-                                      color: Colors.grey[900],
-                                      fontSize:
-                                          MediaQuery.of(context).size.width /
-                                              15)),
+                                style: TextStyle(
+                                  color: Colors.grey[900],
+                                  fontSize: MediaQuery.of(context).size.width / 15
+                                )
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ]),
-                  ]))),
+                  ]
+                )
+              )
+            ),
     );
   }
 
@@ -202,13 +208,13 @@ class _MathTestState extends State<MathTest> {
             iconcolor = null;
             checkicon = null;
             s.stop();
-            current_time = (s.elapsedMilliseconds * 1000).toStringAsFixed(1);
           });
           Navigator.pushNamed(context, '/auswertung');
           var stars = ((10 - falsch) / 2) < 0 ? 0 : ((10 - falsch) / 2);
           var time = (s.elapsedMilliseconds / 1000);
-          List values = [stars, time, DateTime.now()];
+          List values = [stars, time, '${DateFormat('d.MM H:m').format(DateTime.now())}'];
           setState(() {
+            current_time = '${time.toStringAsFixed(1)}';
             s.reset();
           });
           timebox.put((time * 1000000).round(), values);

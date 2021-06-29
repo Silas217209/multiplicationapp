@@ -21,8 +21,7 @@ class French {
   String Einmaleins10 = "Table des 10";
   String Einmaleinsalles = "Toutes les tables";
   String Statistiken_loschen_title = "Attention";
-  String Statistiken_loschen_body =
-      "Tu veux vraiment effacer les statistiques ?";
+  String Statistiken_loschen_body = "Tu veux vraiment effacer les statistiques ?";
   String Statistiken_text_einstellungen = "effacer les statistiques";
   String Statistiken_zeit_loschen_title = "Attention";
   String Statistiken_zeit_loschen_body = "Tu veux vraiment effacer les temps ?";
@@ -38,23 +37,23 @@ class French {
   String zeit = 'temps';
   String aktuelle_zeit = 'temps';
   String bestzeit = 'temps a battre';
-  String januar = 'janvier';
-  String februar = 'février';
-  String marz = 'mars';
-  String april = 'avril';
-  String mai = 'mai';
-  String juni = 'juin';
-  String juli = 'juillet';
-  String august = 'août';
-  String september = 'septembre';
-  String oktober = 'octobre';
-  String november = 'novembre';
-  String dezember = 'dezembre';
+  String about = "sur l'application";
+  String privacy = 'Mentions legales';
+  String apptext = '''Apprenez les tables de multiplication rapidement et facilement avec cette application.
+
+Tu as appris les tables de multiplication à l'école, mais tu ne les sais pas encore très bien? Accède à la partie exercice de l'application pour réviser n’importe quelle table de 1 à 10. Prends ton temps car ce n'est pas chronométré. Si tu as fait une erreur, ça n’est pas grave tu sauras la bonne réponse la prochaine fois!
+
+Si tu maîtrises bien les tables de multiplication ou si tu veux connaître ton niveau, accède aux tests et choisis les tables dansêtre testé(e) et commence. On te montrera l'une après l'autre 10 tâches générées aléatoirement que tu dois résoudre. Encore une fois, ce n’est pas le temps qui compte mais le nombre d’erreurs.
+Dans les statistiques tu trouveras un tableau avec des champs pour chaque tâche que tu as résolues dans un test. Si le cercle est vert, cela signifie que tu as au moins 9 réponses sur 10 correctes. S'il est jaune, cela signifie que tu as bien répondu à au moins 5 questions et rouge signifie que tu n’as pas plus de 4 réponses correctes.
+
+Tu seras chronométré pendant le test. Ton temp
+sera indiqué dans les statistiques, ainsi que la date, l’heure et les étoiles que tu as atteintes.
+
+You can find the source code here: ''';
 
   String falsch(falsch) => "faux: $falsch";
   String richtig(richtig) => "juste: $richtig";
-  String aufgabe(testfirst, testsecond, ergebnis) =>
-      "$testfirst x $testsecond = $ergebnis";
+  String aufgabe(testfirst, testsecond, ergebnis) => "$testfirst x $testsecond = $ergebnis";
   String anzahl_richtig_falsch(richtig, falsch) => "$richtig et $falsch";
   String getrightsingular(value) => "$value résultat juste";
   String getrightplural(value) => "$value résultats justes";

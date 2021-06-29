@@ -42,4 +42,4 @@ List testaufgabenliste = [testfirst];
 IconData? checkicon;
 Color? iconcolor;
 Stopwatch s = Stopwatch();
-var current_time = '';
+String current_time = '';

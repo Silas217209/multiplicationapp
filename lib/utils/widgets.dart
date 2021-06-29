@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:multiplication/utils/variablen.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:intl/intl.dart';
 
 class CustomTextButton extends StatelessWidget {
   final text;
@@ -350,60 +349,4 @@ class _MeanStarState extends State<MeanStar> {
       return 0;
     }
   }
-}
-
-formatdate(date) {
-  var locale = '';
-  var formattedDate = DateFormat('j:m d.MMM.y').format(date).toString();
-  switch (language) {
-    case 'de':
-      locale = 'de';
-      break;
-    case 'fr':
-      locale = 'fr';
-      break;
-    default:
-      locale = 'de';
-  }
-  if (locale == 'de') {
-    switch (DateFormat('MMM').format(date).toString()) {
-      case 'january':
-        formattedDate.replaceAll(RegExp('january'), translation.januar);
-        break;
-      case 'febuary':
-        formattedDate.replaceAll(RegExp('febuary'), translation.februar);
-        break;
-      case 'march':
-        formattedDate.replaceAll(RegExp('march'), translation.marz);
-        break;
-      case 'april':
-        formattedDate.replaceAll(RegExp('april'), translation.april);
-        break;
-      case 'may':
-        formattedDate.replaceAll(RegExp('may'), translation.mai);
-        break;
-      case 'june':
-        formattedDate.replaceAll(RegExp('june'), translation.juni);
-        break;
-      case 'july':
-        formattedDate.replaceAll(RegExp('july'), translation.juli);
-        break;
-      case 'august':
-        formattedDate.replaceAll(RegExp('august'), translation.august);
-        break;
-      case 'september':
-        formattedDate.replaceAll(RegExp('september'), translation.september);
-        break;
-      case 'october':
-        formattedDate.replaceAll(RegExp('october'), translation.oktober);
-        break;
-      case 'november':
-        formattedDate.replaceAll(RegExp('november'), translation.november);
-        break;
-      case 'dezember':
-        formattedDate.replaceAll(RegExp('dezember'), translation.dezember);
-        break;
-    }
-  }
-  return formattedDate;
 }
