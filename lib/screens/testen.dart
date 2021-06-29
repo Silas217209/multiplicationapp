@@ -80,35 +80,41 @@ class _TestsState extends State<Tests> {
                 CustomTextButton(
                   text: '${translation.Los_gehts} $countdown',
                   onPressed: () async{
-                    if(testliste.isNotEmpty) {
-                      setState(() {
-                        countdown = 3;
-                      });
-                      await Future.delayed(const Duration(seconds: 1), () async {
+                    if(countdown == '') {
+                      if (testliste.isNotEmpty) {
                         setState(() {
-                          countdown = 2;
+                          countdown = 3;
                         });
-                        await Future.delayed(const Duration(seconds: 1), () async {
+                        await Future.delayed(
+                            const Duration(seconds: 1), () async {
                           setState(() {
-                            countdown = 1;
+                            countdown = 2;
                           });
-                          await Future.delayed(const Duration(seconds: 1), () {
+                          await Future.delayed(
+                              const Duration(seconds: 1), () async {
                             setState(() {
-                              countdown = '';
+                              countdown = 1;
                             });
-                            Navigator.pushNamed(context, '/math_test');
-                            setState(() {
-                              falsch = 0;
-                              textcolor = Colors.black;
-                              ergebnisliste.clear();
-                              ergebnis = '';
-                              testfirst =  random.nextInt(10) +1;
-                              testsecond = testliste[random.nextInt(testliste.length)];
-                              s.start();
+                            await Future.delayed(
+                                const Duration(seconds: 1), () {
+                              setState(() {
+                                countdown = '';
+                              });
+                              Navigator.pushNamed(context, '/math_test');
+                              setState(() {
+                                falsch = 0;
+                                textcolor = Colors.black;
+                                ergebnisliste.clear();
+                                ergebnis = '';
+                                testfirst = random.nextInt(10) + 1;
+                                testsecond =
+                                testliste[random.nextInt(testliste.length)];
+                                s.start();
+                              });
                             });
                           });
                         });
-                      });
+                      }
                     }
                   },
                 ),
