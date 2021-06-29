@@ -71,6 +71,8 @@ class _EinstellungenState extends State<Einstellungen> {
                                 const url = 'https://github.com/Silas217209/Multiplication.git';
                                 if(await canLaunch(url)) {
                                   await launch(url);
+                                } else {
+                                  print('cant open $url');
                                 }
                               }
                             ),
@@ -78,10 +80,7 @@ class _EinstellungenState extends State<Einstellungen> {
                               text: '\n \n ${translation.privacy}',
                               style: TextStyle(color: Colors.blue),
                               recognizer: TapGestureRecognizer()..onTap = () async{
-                                const url = 'https://github.com/Silas217209/Multiplication.git';
-                                if(await canLaunch(url)) {
-                                  await launch(url);
-                                }
+                                Navigator.pushNamed(context, '/privacy');
                               }
                             ),
                           ]

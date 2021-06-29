@@ -50,6 +50,29 @@ In den Statistiken siehst du eine Einmaleins Tabelle mit Feldern für jede Aufga
 Während eines Tests wird zusätzlich auch noch die Zeit gestoppt, die du für den Test benötigst. Diese wird dir dann samt Datum, Uhrzeit und der Stern, die du erreicht hast, angezeigt.
 
 You can find the source code here: ''';
+
+  String policy = '''
+ Die App sammelt, speichert oder verteilt keinerlei persönliche Daten und es ist ihr außerdem nicht möglich
+
+  • eine Internetverbindung aufzubauen
+
+  • auf  den Speicher, die Kontakte oder auf den Kalender zuzugreifen
+
+  • Nachrichten abzurufen
+
+  • den Standort zu ermitteln
+
+Die App fragt ledigich die bevorzugte Sprache ab, um die Sprache der App dem jeweiigen Nutzer anzupassen.
+
+
+Mathilde Mélois
+Schützenstraße 4
+16359 Biesenthal
+Deutschland
+
+melois@zebrakuh.com
+  ''';
+
   String falsch(falsch) => "falsch: $falsch";
   String richtig(richtig) => "richtig: $richtig";
   String aufgabe(testfirst, testsecond, ergebnis) =>
