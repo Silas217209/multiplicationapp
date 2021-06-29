@@ -19,7 +19,7 @@ class _TestsState extends State<Tests> {
       title: Text(translation.Testen),
       leading: GestureDetector(
         child: Icon(Icons.arrow_back),
-        onTap: () => Navigator.popUntil(context, ModalRoute.withName('/home')),
+        onTap: () => Navigator.pushNamed(context, '/home'),
       ),
       actions: [
         PopupMenuButton(
